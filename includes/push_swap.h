@@ -6,7 +6,7 @@
 /*   By: smilla-c <smilla-c@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/17 09:48:35 by smilla-c          #+#    #+#             */
-/*   Updated: 2026/02/18 11:38:13 by alecasan         ###   ########.fr       */
+/*   Updated: 2026/02/18 13:21:13 by smilla-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,12 @@ typedef struct s_program
 }	t_program;
 
 // --- FUNCTIONS MAIN --- //
+
+// --- PARSING --- //
 long	ft_atol(const char *str);
 int		check_invalid_args(int argc, char **argv);
-void	check_duplicates_args(int argc, char **argv);
+int		check_duplicates_args(int argc, char **argv);
+int		parse_args(int argc, char **argv, t_stack *a);
 
 // --- FUNCTIONS MOVES --- //
 // -- PUSH -- //
