@@ -6,7 +6,7 @@
 /*   By: smilla-c <smilla-c@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/17 09:48:35 by smilla-c          #+#    #+#             */
-/*   Updated: 2026/02/17 12:35:12 by smilla-c         ###   ########.fr       */
+/*   Updated: 2026/02/18 10:44:06 by smilla-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ t_stack	b;
 
 // --- FUNCIONES MAIN --- //
 
-
-void	check_invalid_args(int argc, char **argv);
+long	ft_atol(const char *str)
+int		check_invalid_args(int argc, char **argv);
 void	check_duplicates_args(int argc, char **argv);
 
 // --- FUNCIONES MOVES --- //

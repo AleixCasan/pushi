@@ -1,9 +1,18 @@
-#include <stdio.h>
-#include <stdlib.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: smilla-c <smilla-c@student.42barcelon      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/02/17 12:42:41 by smilla-c          #+#    #+#             */
+/*   Updated: 2026/02/17 12:43:34 by smilla-c         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-size_t  ft_strlen (const char *s)
+size_t	ft_strlen(const char *s)
 {
-    size_t  i;
+    size_t	i;
 
     i = 0;
     while (s[i])
@@ -12,9 +21,9 @@ size_t  ft_strlen (const char *s)
 }
 char    *ft_substr(const char *s, unsigned int start, size_t len)
 {
-    size_t  s_len;
-    size_t  i;
-    char *ptr;
+    size_t	s_len;
+    size_t	i;
+    char	*ptr;
 
     if (!s)
         return (NULL);
