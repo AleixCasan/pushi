@@ -6,13 +6,13 @@
 /*   By: smilla-c <smilla-c@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/16 13:13:57 by smilla-c          #+#    #+#             */
-/*   Updated: 2026/02/18 10:40:08 by smilla-c         ###   ########.fr       */
+/*   Updated: 2026/02/18 11:14:51 by smilla-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-long	ft_atol (const char *str)
+long	ft_atol(const char *str)
 {
 	long	sign;
 	long	res;
@@ -32,11 +32,12 @@ long	ft_atol (const char *str)
 	}
 	return (sign * res);
 }
+
 int	check_invalid_args(int argc, char **argv)
 {
 	int		i;
 	int		j;
-	char 	*s;
+	char	*s;
 
 	i = 1;
 	while (i < argc)
@@ -85,20 +86,17 @@ void	check_duplicates_args(int argc, char **argv)
 int	main(int argc, char **argv)
 {
 	t_stack	a;
-	t_stack b;
+	t_stack	b;
 
 	if (argc < 2)
-		return (write(2, "Error\n", 6),1);
+		return (write(2, "Error\n", 6), 1);
 	if (check_invalid_args(argc, argv))
-		return (write(2, "Error\n", 6),1);
+		return (write(2, "Error\n", 6), 1);
 	if (check_duplicates_args(argc, argv))
-		return (write(2, "Error\n", 6),1);
-
+		return (write (2, "Error\n", 6), 1);
 	init_stack(&a, argc, argv);
 	init_stack(&b, 0, NULL);
-
 	select_strategy(&a, &b, argc, argv);
-
 	free_stack(&a);
 	free_stack(&b);
 	return (0);
