@@ -6,22 +6,22 @@
 /*   By: smilla-c <smilla-c@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/17 09:48:35 by smilla-c          #+#    #+#             */
-/*   Updated: 2026/02/18 10:44:06 by smilla-c         ###   ########.fr       */
+/*   Updated: 2026/02/18 11:38:13 by alecasan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-#include <stdlib.h>
-#include <unistd.h>
+# include <stdlib.h>
+# include <unistd.h>
 
+// --- STRUCTURES --- //
 typedef struct s_node
 {
-	int	value;
+	int				value;
 	struct s_node	*next;
-} t_node;i
+}	t_node;
 
 typedef struct s_stack
 {
@@ -29,27 +29,39 @@ typedef struct s_stack
 	int		size;
 }	t_stack;
 
-//---DECLARACION DE STACKS GLOBALES--- //
+typedef struct s_program
+{
+	t_stack	a;
+	t_stack	b;
+}	t_program;
 
-
-t_stack	a;
-t_stack	b;
-
-
-// --- FUNCIONES MAIN --- //
-
-long	ft_atol(const char *str)
+// --- FUNCTIONS MAIN --- //
+long	ft_atol(const char *str);
 int		check_invalid_args(int argc, char **argv);
 void	check_duplicates_args(int argc, char **argv);
 
-// --- FUNCIONES MOVES --- //
-void	push(t_node **from, t_node **to);
+// --- FUNCTIONS MOVES --- //
+// -- PUSH -- //
+void	push(t_node **src, t_node **dest);
+void	pa(t_node **a, t_node **b);
+void	pb(t_node **a, t_node **b);
+// -- SWAP -- //
 void	swap(t_node **stack);
+void	sa(t_node **a);
+void	sb(t_node **b);
+void	ss(t_node **a, t_node **b);
+// -- ROTATE -- //
 void	rotate(t_node **stack);
+void	ra(t_node **a);
+void	rb(t_node **b);
+void	rr(t_node **a, t_node **b);
+// -- REVERSE ROTATE -- //
 void	reverse_rotate(t_node **stack);
+void	rra(t_node **a);
+void	rrb(t_node **b);
+void	rrr(t_node **a, t_node **b);
 
 int		is_sorted(t_node **stack);
 t_node	*create_node(int value);
 
 #endif
-
