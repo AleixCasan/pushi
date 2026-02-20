@@ -6,7 +6,7 @@
 /*   By: smilla-c <smilla-c@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/18 13:17:24 by smilla-c          #+#    #+#             */
-/*   Updated: 2026/02/18 13:17:56 by smilla-c         ###   ########.fr       */
+/*   Updated: 2026/02/20 11:46:56 by smilla-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,26 @@ long	ft_atol(const char *str)
 		str++;
 	}
 	return (sign * res);
+}
+
+int	init_stack(t_stack *a, int argc, char **argv)
+{
+	int		i;
+	long	n;
+
+	a->top = NULL;
+	a->size = 0;
+	i = 1;
+	while (i < argc)
+	{
+		n = ft_atol(argv[i]);
+		if (n < -2147483648 || n > 2147483647)
+			return (1);
+		if (stack_add_back(a, (int)n))
+			return (1);
+		i++;
+	}
+	return (0);
 }
 
 int	check_invalid_args(int argc, char **argv)

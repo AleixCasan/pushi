@@ -6,7 +6,7 @@
 /*   By: smilla-c <smilla-c@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/17 09:48:35 by smilla-c          #+#    #+#             */
-/*   Updated: 2026/02/18 13:21:13 by smilla-c         ###   ########.fr       */
+/*   Updated: 2026/02/20 12:19:01 by smilla-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,17 @@ long	ft_atol(const char *str);
 int		check_invalid_args(int argc, char **argv);
 int		check_duplicates_args(int argc, char **argv);
 int		parse_args(int argc, char **argv, t_stack *a);
+int		init_stack(t_stack *a, int argc, char **argv);
+
+// --- STACK UTILS --- //
+int		stack_add_back(t_stack *stack, int value);
+t_node	*create_node(int value);
+int		is_sorted(t_node *stack);
+void	free_stack(t_stack *stack);
+
+// --- ALGORITHM --- //
+
+void	select_strategy(t_stack *a, t_stack *b);
 
 // --- FUNCTIONS MOVES --- //
 // -- PUSH -- //
@@ -63,8 +74,5 @@ void	reverse_rotate(t_node **stack);
 void	rra(t_node **a);
 void	rrb(t_node **b);
 void	rrr(t_node **a, t_node **b);
-
-int		is_sorted(t_node **stack);
-t_node	*create_node(int value);
 
 #endif
