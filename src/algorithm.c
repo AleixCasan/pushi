@@ -48,7 +48,7 @@ static void	sort_five(t_stack *a, t_stack *b)
 		pa(&b->top, &a->top);
 }
 
-static void	radix_sort(t_stack *a, t_stack *b)
+void	radix_sort(t_stack *a, t_stack *b)
 {
 	int	i;
 

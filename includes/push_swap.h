@@ -37,6 +37,12 @@ typedef struct s_program
 
 // --- FUNCTIONS MAIN --- //
 
+// --- FLAGS --- //
+int		ft_strcmp(const char *s1, const char *s2);
+char	*get_strategy(int argc, char **argv);
+void	select_strategy_advanced(char *strategy, t_stack *a, t_stack *b);
+void	select_strategy_bench(t_stack *a, t_stack *b);
+
 // --- PARSING --- //
 long	ft_atol(const char *str);
 int		check_invalid_args(int argc, char **argv);
@@ -50,9 +56,17 @@ t_node	*create_node(int value);
 int		is_sorted(t_node *stack);
 void	free_stack(t_stack *stack);
 
+// --- STRATEGY --- //
+void	select_strategy(t_stack *a, t_stack *b);
+void	simple_sort(t_stack *a, t_stack *b);
+void	medium_sort(t_stack *a, t_stack *b);
+void	complex_sort(t_stack *a, t_stack *b);
+void	adaptive_sort(t_stack *a, t_stack *b);
+
 // --- ALGORITHM --- //
 
 void	select_strategy(t_stack *a, t_stack *b);
+void	radix_sort(t_stack *a, t_stack *b);
 
 // --- FUNCTIONS MOVES --- //
 // -- PUSH -- //
