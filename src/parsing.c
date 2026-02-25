@@ -109,6 +109,7 @@ int	parse_args(int argc, char **argv, t_stack *a)
 		return (1);
 	if (check_duplicates_args(argc, argv))
 		return (1);
-	init_stack(a, argc, argv);
+	if (init_stack(a, argc, argv))
+		return (1);
 	return (0);
 }

@@ -12,25 +12,27 @@
 
 #include "push_swap.h"
 
-void	push(t_node **src, t_node **dest)
+void	push(t_stack *src, t_stack *dest)
 {
 	t_node	*temp;
 
-	if (!src || !*src)
+	if (!src || !src->top)
 		return ;
-	temp = *src;
-	*src = (*src)->next;
-	temp->next = *dest;
-	*dest = temp;
+	temp = src->top;
+	src->top = src->top->next;
+	temp->next = dest->top;
+	dest->top = temp;
+	src->size--;
+	dest->size++;
 }
 
-void	pa(t_node **a, t_node **b)
+void	pa(t_stack *a, t_stack *b)
 {
 	push(b, a);
 	write(1, "pa\n", 3);
 }
 
-void	pb(t_node **a, t_node **b)
+void	pb(t_stack *a, t_stack *b)
 {
 	push(a, b);
 	write(1, "pb\n", 3);

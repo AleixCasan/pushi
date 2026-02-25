@@ -6,7 +6,7 @@
 /*   By: smilla-c <smilla-c@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/17 09:48:35 by smilla-c          #+#    #+#             */
-/*   Updated: 2026/02/20 12:19:01 by smilla-c         ###   ########.fr       */
+/*   Updated: 2026/02/25 11:07:19 by smilla-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+
+size_t	ft_strlen(const char *s);
 
 // --- STRUCTURES --- //
 typedef struct s_node
@@ -49,6 +51,7 @@ int		check_invalid_args(int argc, char **argv);
 int		check_duplicates_args(int argc, char **argv);
 int		parse_args(int argc, char **argv, t_stack *a);
 int		init_stack(t_stack *a, int argc, char **argv);
+char	**ft_split(const char *s, char c);
 
 // --- STACK UTILS --- //
 int		stack_add_back(t_stack *stack, int value);
@@ -64,29 +67,31 @@ void	complex_sort(t_stack *a, t_stack *b);
 void	adaptive_sort(t_stack *a, t_stack *b);
 
 // --- ALGORITHM --- //
-
-void	select_strategy(t_stack *a, t_stack *b);
 void	radix_sort(t_stack *a, t_stack *b);
 
 // --- FUNCTIONS MOVES --- //
 // -- PUSH -- //
-void	push(t_node **src, t_node **dest);
-void	pa(t_node **a, t_node **b);
-void	pb(t_node **a, t_node **b);
+void	push(t_stack *src, t_stack *dest);
+void	pa(t_stack *a, t_stack *b);
+void	pb(t_stack *a, t_stack *b);
 // -- SWAP -- //
-void	swap(t_node **stack);
-void	sa(t_node **a);
-void	sb(t_node **b);
-void	ss(t_node **a, t_node **b);
+void	swap(t_stack *stack);
+void	sa(t_stack *a);
+void	sb(t_stack *b);
+void	ss(t_stack *a, t_stack *b);
 // -- ROTATE -- //
-void	rotate(t_node **stack);
-void	ra(t_node **a);
-void	rb(t_node **b);
-void	rr(t_node **a, t_node **b);
+void	rotate(t_stack *stack);
+void	ra(t_stack *a);
+void	rb(t_stack *b);
+void	rr(t_stack *a, t_stack *b);
 // -- REVERSE ROTATE -- //
-void	reverse_rotate(t_node **stack);
-void	rra(t_node **a);
-void	rrb(t_node **b);
-void	rrr(t_node **a, t_node **b);
+void	reverse_rotate(t_stack *stack);
+void	rra(t_stack *a);
+void	rrb(t_stack *b);
+void	rrr(t_stack *a, t_stack *b);
+
+// --- INIT / HELPERS --- //
+int		handle_single_argument(char *arg, t_stack *a);
+int		parse_and_init(int argc, char **argv, t_stack *a);
 
 #endif

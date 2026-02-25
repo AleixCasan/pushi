@@ -6,7 +6,7 @@
 /*   By: smilla-c <smilla-c@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/20 11:57:46 by smilla-c          #+#    #+#             */
-/*   Updated: 2026/02/20 12:04:45 by smilla-c         ###   ########.fr       */
+/*   Updated: 2026/02/25 11:16:26 by smilla-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,52 +17,82 @@ static void	sort_three(t_stack *a)
 	if (a->top->value > a->top->next->value)
 	{
 		if (a->top->value < a->top->next->next->value)
-			sa(&a->top);
+			sa(a);
 		else if (a->top->next->value > a->top->next->next->value)
 		{
-			sa(&a->top);
-			rra(&a->top);
+			sa(a);
+			rra(a);
 		}
 		else
-			ra(&a->top);
+			ra(a);
 	}
 	else if (a->top->next->value > a->top->next->next->value)
 	{
 		if (a->top->value > a->top->next->next->value)
-			rra(&a->top);
+			rra(a);
 		else
 		{
-			ra(&a->top);
-			sa(&a->top);
+			ra(a);
+			sa(a);
 		}
 	}
 }
 
-static void	sort_five(t_stack *a, t_stack *b)
+static int	find_min_pos_in_stack(t_stack *a)
 {
-	pb(&a->top, &b->top);
-	pb(&a->top, &b->top);
-	sort_three(a);
-	pa(&b->top, &a->top);
-	if (b->size)
-		pa(&b->top, &a->top);
+	t_node	*cur;
+	int		min;
+	int		min_pos;
+	int		pos;
+
+	cur = a->top;
+	min = cur->value;
+	min_pos = 0;
+	pos = 0;
+	while (cur)
+	{
+		if (cur->value < min)
+		{
+			min = cur->value;
+			min_pos = pos;
+		}
+		cur = cur->next;
+		pos++;
+	}
+	return (min_pos);
 }
 
-void	radix_sort(t_stack *a, t_stack *b)
+static void	push_min_to_b(t_stack *a, t_stack *b)
 {
+	int	pos;
 	int	i;
 
-	i = 0;
-	while (!is_sorted(a->top) && i < 32)
+	pos = find_min_pos_in_stack(a);
+	if (pos <= a->size / 2)
 	{
-		if ((a->top->value >> i & 1) == 0)
-			pb(&a->top, &b->top);
-		else
-			ra(&a->top);
-		i++;
+		i = 0;
+		while (i++ < pos)
+			ra(a);
 	}
+	else
+	{
+		i = 0;
+		while (i++ < a->size - pos)
+			rra(a);
+	}
+	pb(a, b);
+}
+
+static void	sort_five(t_stack *a, t_stack *b)
+{
+	int	to_push;
+
+	to_push = a->size - 3;
+	while (to_push-- > 0)
+		push_min_to_b(a, b);
+	sort_three(a);
 	while (b->size)
-		pa(&b->top, &a->top);
+		pa(a, b);
 }
 
 void	select_strategy(t_stack *a, t_stack *b)
@@ -72,7 +102,7 @@ void	select_strategy(t_stack *a, t_stack *b)
 	if (a->size == 2)
 	{
 		if (a->top->value > a->top->next->value)
-			sa(&a->top);
+			sa(a);
 		return ;
 	}
 	if (a->size == 3)

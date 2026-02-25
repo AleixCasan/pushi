@@ -24,7 +24,7 @@ int	ft_strcmp(const char *s1, const char *s2)
 
 char	*get_strategy(int argc, char **argv)
 {
-	if (argc > 1)
+	if (argc > 1 && argv[1][0] == '-' && argv[1][1] == '-')
 	{
 		if (!ft_strcmp(argv[1], "--simple"))
 			return ("--simple");
@@ -36,8 +36,8 @@ char	*get_strategy(int argc, char **argv)
 			return ("--adaptive");
 		if (!ft_strcmp(argv[1], "--bench"))
 			return ("--bench");
-	write(2, "Error\n", 6);
-        exit(1);
+		write(2, "Error\n", 6);
+		exit(1);
 	}
 	return ("--adaptive");
 }
