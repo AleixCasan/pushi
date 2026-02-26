@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   radix.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: smilla-c <smilla-c@student.42barcelon      +#+  +:+       +#+        */
+/*   By: alecasan <alecasan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 19:00:00 by smilla-c          #+#    #+#             */
-/*   Updated: 2026/02/23 19:00:00 by smilla-c         ###   ########.fr       */
+/*   Updated: 2026/02/26 11:34:44 by alecasan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "benchmark.h"
 #include <stdlib.h>
 
 static int	cmp_ints(const void *p1, const void *p2)
@@ -86,7 +87,7 @@ static void	index_values(t_stack *a)
 	free(sorted);
 }
 
-void	radix_sort(t_stack *a, t_stack *b)
+void	radix_sort(t_stack *a, t_stack *b, t_bench *bench)
 {
 	int		i;
 	int		max_bits;

@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   algorithm.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: smilla-c <smilla-c@student.42barcelon      +#+  +:+       +#+        */
+/*   By: alecasan <alecasan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/20 11:57:46 by smilla-c          #+#    #+#             */
-/*   Updated: 2026/02/25 11:16:26 by smilla-c         ###   ########.fr       */
+/*   Updated: 2026/02/26 11:42:55 by alecasan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "benchmark.h"
 
 static void	sort_three(t_stack *a)
 {
@@ -95,7 +96,7 @@ static void	sort_five(t_stack *a, t_stack *b)
 		pa(a, b);
 }
 
-void	select_strategy(t_stack *a, t_stack *b)
+void	select_strategy(t_stack *a, t_stack *b, t_bench *bench)
 {
 	if (a->size == 0 || is_sorted(a->top))
 		return ;

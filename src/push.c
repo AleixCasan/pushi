@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alecasan <alecasan@student.42barcelon      +#+  +:+       +#+        */
+/*   By: alecasan <alecasan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/18 00:28:06 by alecasan          #+#    #+#             */
-/*   Updated: 2026/02/18 01:53:35 by alecasan         ###   ########.fr       */
+/*   Updated: 2026/02/26 11:14:08 by alecasan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "benchmark.h"
 
 void	push(t_stack *src, t_stack *dest)
 {
@@ -26,14 +27,16 @@ void	push(t_stack *src, t_stack *dest)
 	dest->size++;
 }
 
-void	pa(t_stack *a, t_stack *b)
+void	pa(t_stack *a, t_stack *b, t_bench *bench)
 {
 	push(b, a);
 	write(1, "pa\n", 3);
+	bench_count(bench, "pa");
 }
 
-void	pb(t_stack *a, t_stack *b)
+void	pb(t_stack *a, t_stack *b, t_bench *bench)
 {
 	push(a, b);
 	write(1, "pb\n", 3);
+	bench_count(bench, "pb");
 }

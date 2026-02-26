@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: smilla-c <smilla-c@student.42barcelon      +#+  +:+       +#+        */
+/*   By: alecasan <alecasan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/17 09:48:35 by smilla-c          #+#    #+#             */
-/*   Updated: 2026/02/25 11:07:19 by smilla-c         ###   ########.fr       */
+/*   Updated: 2026/02/26 11:46:33 by alecasan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,14 +60,14 @@ int		is_sorted(t_node *stack);
 void	free_stack(t_stack *stack);
 
 // --- STRATEGY --- //
-void	select_strategy(t_stack *a, t_stack *b);
+void	select_strategy(t_stack *a, t_stack *b, t_bench *bench);
 void	simple_sort(t_stack *a, t_stack *b);
 void	medium_sort(t_stack *a, t_stack *b);
 void	complex_sort(t_stack *a, t_stack *b);
 void	adaptive_sort(t_stack *a, t_stack *b);
 
 // --- ALGORITHM --- //
-void	radix_sort(t_stack *a, t_stack *b);
+void	radix_sort(t_stack *a, t_stack *b, t_bench *bench);
 
 // --- FUNCTIONS MOVES --- //
 // -- PUSH -- //

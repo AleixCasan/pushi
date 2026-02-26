@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   strategy.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: smilla-c <smilla-c@student.42barcelon      +#+  +:+       +#+        */
+/*   By: alecasan <alecasan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/20 13:16:23 by smilla-c          #+#    #+#             */
-/*   Updated: 2026/02/25 11:15:12 by smilla-c         ###   ########.fr       */
+/*   Updated: 2026/02/26 11:46:43 by alecasan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "benchmark.h"
 
 static int	find_min_pos(t_stack *a)
 {
@@ -54,19 +55,19 @@ static void	rotate_to_pos(t_stack *a, int pos)
 	}
 }
 
-void	simple_sort(t_stack *a, t_stack *b)
+void	simple_sort(t_stack *a, t_stack *b, t_bench *bench)
 {
 	int	to_push;
 	int	min_pos;
 
 	if (a->size <= 3)
 	{
-		select_strategy(a, b);
+		select_strategy(a, b, bench);
 		return ;
 	}
 	if (a->size <= 5)
 	{
-		select_strategy(a, b);
+		select_strategy(a, b, bench);
 		return ;
 	}
 	to_push = a->size - 3;
@@ -76,12 +77,12 @@ void	simple_sort(t_stack *a, t_stack *b)
 		rotate_to_pos(a, min_pos);
 		pb(a, b);
 	}
-	select_strategy(a, b);
+	select_strategy(a, b, bench);
 	while (b->size)
 		pa(a, b);
 }
 
-void	medium_sort(t_stack *a, t_stack *b)
+void	medium_sort(t_stack *a, t_stack *b, t_bench *bench)
 {
 	int	chunk_size;
 	int	i;
@@ -93,17 +94,17 @@ void	medium_sort(t_stack *a, t_stack *b)
 		pb(a, b);
 		i++;
 	}
-	select_strategy(a, b);
+	select_strategy(a, b, bench);
 	while (b->size)
 		pa(a, b);
 }
 
-void	adaptive_sort(t_stack *a, t_stack *b)
+void	adaptive_sort(t_stack *a, t_stack *b, t_bench *bench)
 {
 	if (a->size <= 3)
-		select_strategy(a, b);
+		select_strategy(a, b, bench);
 	else if (a->size <= 100)
-		medium_sort(a, b);
+		medium_sort(a, b, bench);
 	else
-		radix_sort(a, b);
+		radix_sort(a, b, bench);
 }
