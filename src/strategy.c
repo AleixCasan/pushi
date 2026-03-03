@@ -12,6 +12,10 @@
 
 #include "push_swap.h"
 #include "benchmark.h"
+/*
+** Returns the position of the minimum value in stack A.
+** Used in simple_sort to decide rotations.
+*/
 
 static int	find_min_pos(t_stack *a)
 {
@@ -36,6 +40,10 @@ static int	find_min_pos(t_stack *a)
 	}
 	return (min_pos);
 }
+/*
+** Rotates stack A to bring the element at position 'pos' to the top.
+** Chooses ra or rra for minimal moves.
+*/
 
 static void	rotate_to_pos(t_stack *a, int pos)
 {
@@ -54,6 +62,10 @@ static void	rotate_to_pos(t_stack *a, int pos)
 			rra(a);
 	}
 }
+/*
+** Sorts stack A using a simple strategy for small stacks.
+** Moves minimum elements to B, sorts remaining A, then pushes back from B.
+*/
 
 void	simple_sort(t_stack *a, t_stack *b, t_bench *bench)
 {
@@ -81,6 +93,11 @@ void	simple_sort(t_stack *a, t_stack *b, t_bench *bench)
 	while (b->size)
 		pa(a, b);
 }
+/*
+** Sorts stack A using a medium-size strategy.
+** Pushes approximately half of elements to B, sorts remaining A,
+** then pushes elements back from B.
+*/
 
 void	medium_sort(t_stack *a, t_stack *b, t_bench *bench)
 {
@@ -98,7 +115,11 @@ void	medium_sort(t_stack *a, t_stack *b, t_bench *bench)
 	while (b->size)
 		pa(a, b);
 }
-
+/*
+** Adaptive sorting strategy that selects the method based on stack size.
+** Uses select_strategy, medium_sort, or radix_sort accordingly.
+*/
+ 
 void	adaptive_sort(t_stack *a, t_stack *b, t_bench *bench)
 {
 	if (a->size <= 3)
