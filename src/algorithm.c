@@ -12,6 +12,10 @@
 
 #include "push_swap.h"
 #include "benchmark.h"
+/*
+** Sorts a stack of exactly three elements in ascending order.
+** Uses only sa, ra, rra operations.
+*/
 
 static void	sort_three(t_stack *a)
 {
@@ -38,6 +42,9 @@ static void	sort_three(t_stack *a)
 		}
 	}
 }
+/*
+** Returns the position of the minimum value in the stack.
+*/
 
 static int	find_min_pos_in_stack(t_stack *a)
 {
@@ -62,6 +69,10 @@ static int	find_min_pos_in_stack(t_stack *a)
 	}
 	return (min_pos);
 }
+/*
+** Rotates the stack to bring the minimum element on top,
+** then pushes it to stack B.
+*/
 
 static void	push_min_to_b(t_stack *a, t_stack *b)
 {
@@ -83,6 +94,11 @@ static void	push_min_to_b(t_stack *a, t_stack *b)
 	}
 	pb(a, b);
 }
+/*
+** Sorts a stack of up to five elements.
+** Pushes smallest elements to B, sorts remaining three in A,
+** then pushes back from B to A.
+*/
 
 static void	sort_five(t_stack *a, t_stack *b)
 {
@@ -95,6 +111,10 @@ static void	sort_five(t_stack *a, t_stack *b)
 	while (b->size)
 		pa(a, b);
 }
+/*
+** Selects the sorting strategy based on the size of stack A.
+** Uses minimal operations for small stacks and radix sort for larger ones.
+*/
 
 void	select_strategy(t_stack *a, t_stack *b, t_bench *bench)
 {

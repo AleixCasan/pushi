@@ -11,6 +11,10 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
+/*
+** Checks if the given string contains any space character.
+** Returns 1 if a space is found, 0 otherwise.
+*/
 
 static int	contains_space(const char *s)
 {
@@ -25,6 +29,11 @@ static int	contains_space(const char *s)
 	}
 	return (0);
 }
+/*
+** Parses command-line arguments and initializes stack A.
+** Handles both multiple arguments and single argument with spaces.
+** Returns 1 if an error occurs.
+*/
 
 int	parse_and_init(int argc, char **argv, t_stack *a)
 {

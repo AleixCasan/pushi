@@ -11,6 +11,10 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
+/*
+** Compares two strings and returns 0 if equal,
+** positive if s1 > s2, negative if s1 < s2.
+*/
 
 int	ft_strcmp(const char *s1, const char *s2)
 {
@@ -21,6 +25,10 @@ int	ft_strcmp(const char *s1, const char *s2)
 	}
 	return ((unsigned char)*s1 - (unsigned char)*s2);
 }
+/*
+** Determines the sorting strategy based on command-line flags.
+** Returns the strategy string or exits with error if unknown flag.
+*/
 
 char	*get_strategy(int argc, char **argv)
 {

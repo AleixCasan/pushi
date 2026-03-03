@@ -12,6 +12,10 @@
 
 #include "push_swap.h"
 #include "benchmark.h"
+/*
+** Swaps the first two elements of the given stack.
+** Does nothing if the stack has less than two elements.
+*/
 
 void	swap(t_stack *stack)
 {
@@ -26,6 +30,10 @@ void	swap(t_stack *stack)
 	second->next = first;
 	stack->top = second;
 }
+/*
+** Performs swap on stack A (sa), stack B (sb), or both (ss),
+** prints the operation, and updates benchmark.
+*/
 
 void	sa(t_stack *a, t_bench *bench)
 {

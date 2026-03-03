@@ -12,6 +12,10 @@
 
 #include "push_swap.h"
 #include "benchmark.h"
+/*
+** Moves the top element from src stack to dest stack.
+** Adjusts the sizes of both stacks accordingly.
+*/
 
 void	push(t_stack *src, t_stack *dest)
 {
@@ -26,6 +30,10 @@ void	push(t_stack *src, t_stack *dest)
 	src->size--;
 	dest->size++;
 }
+/*
+** Executes the push operation from stack B to A (pa) or
+** from A to B (pb), prints the operation and updates benchmark.
+*/
 
 void	pa(t_stack *a, t_stack *b, t_bench *bench)
 {

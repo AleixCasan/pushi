@@ -13,6 +13,10 @@
 #include "push_swap.h"
 #include "benchmark.h"
 #include <stdlib.h>
+/*
+** Comparison function for integers.
+** Returns -1, 0, or 1 for qsort.
+*/
 
 static int	cmp_ints(const void *p1, const void *p2)
 {
@@ -25,6 +29,10 @@ static int	cmp_ints(const void *p1, const void *p2)
 		return (1);
 	return (0);
 }
+/*
+** Creates and returns a sorted array of all values in stack A.
+** Returns NULL if memory allocation fails.
+*/
 
 static int	*create_sorted_array(t_stack *a)
 {
@@ -46,6 +54,10 @@ static int	*create_sorted_array(t_stack *a)
 	qsort(arr, a->size, sizeof(int), cmp_ints);
 	return (arr);
 }
+/*
+** Finds the index of a value in a sorted array using binary search.
+** Returns index if found, -1 otherwise.
+*/
 
 static int	find_index(int *arr, int size, int value)
 {
@@ -67,6 +79,10 @@ static int	find_index(int *arr, int size, int value)
 	}
 	return (-1);
 }
+/*
+** Replaces each value in stack A with its index in the sorted order.
+** Prepares stack for radix sorting.
+*/
 
 static void	index_values(t_stack *a)
 {
@@ -86,6 +102,10 @@ static void	index_values(t_stack *a)
 	}
 	free(sorted);
 }
+/*
+** Sorts stack A using Radix Sort with stack B as auxiliary.
+** Uses binary representation and push/rotate operations.
+*/
 
 void	radix_sort(t_stack *a, t_stack *b, t_bench *bench)
 {

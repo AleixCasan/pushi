@@ -11,6 +11,10 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
+/*
+** Adds a new node with the given value at the end of the stack.
+** Returns 0 on success, 1 if memory allocation fails.
+*/
 
 int	stack_add_back(t_stack *stack, int value)
 {
@@ -33,6 +37,10 @@ int	stack_add_back(t_stack *stack, int value)
 	stack->size++;
 	return (0);
 }
+/*
+** Creates a new stack node with the given value.
+** Returns a pointer to the node or NULL on allocation failure.
+*/
 
 t_node	*create_node(int value)
 {
@@ -45,6 +53,10 @@ t_node	*create_node(int value)
 	node->next = NULL;
 	return (node);
 }
+/*
+** Checks if the stack is sorted in ascending order.
+** Returns 1 if sorted, 0 otherwise.
+*/
 
 int	is_sorted(t_node *stack)
 {
@@ -61,6 +73,9 @@ int	is_sorted(t_node *stack)
 	}
 	return (1);
 }
+/*
+** Frees all nodes in the stack and resets its top and size.
+*/
 
 void	free_stack(t_stack *stack)
 {

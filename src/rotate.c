@@ -12,6 +12,10 @@
 
 #include "push_swap.h"
 #include "benchmark.h"
+/*
+** Moves the top element of the stack to the bottom,
+** effectively rotating all elements up by one position.
+*/
 
 void	rotate(t_stack *stack)
 {
@@ -28,6 +32,10 @@ void	rotate(t_stack *stack)
 	last->next = first;
 	first->next = NULL;
 }
+/*
+** Executes rotate on stack A (ra), stack B (rb), or both (rr),
+** prints the operation, and updates benchmark.
+*/
 
 void	ra(t_stack *a, t_bench *bench)
 {

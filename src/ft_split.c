@@ -11,6 +11,9 @@
 /* ************************************************************************** */
 
 #include <stdlib.h>
+/*
+** Returns the length of the given string.
+*/
 
 size_t	ft_strlen(const char *s)
 {
@@ -21,6 +24,10 @@ size_t	ft_strlen(const char *s)
 		i++;
 	return (i);
 }
+/*
+** Allocates and returns a substring from the given string.
+** Starts at 'start' and has at most 'len' characters.
+*/
 
 char	*ft_substr(const char *s, unsigned int start, size_t len)
 {
@@ -47,6 +54,10 @@ char	*ft_substr(const char *s, unsigned int start, size_t len)
 	ptr[i] = '\0';
 	return (ptr);
 }
+/*
+** Counts the number of words in a string separated by character c.
+** Consecutive separators are ignored.
+*/
 
 static size_t	count_words(const char *s, char c)
 {
@@ -64,6 +75,10 @@ static size_t	count_words(const char *s, char c)
 	}
 	return (word);
 }
+/*
+** Splits a string into an array of strings using the given separator.
+** Returns a NULL-terminated array of tokens.
+*/
 
 char	**ft_split(const char *s, char c)
 {

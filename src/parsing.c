@@ -11,6 +11,10 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
+/*
+** Converts a string to a long integer.
+** Handles optional sign and numeric characters only.
+*/
 
 long	ft_atol(const char *str)
 {
@@ -32,6 +36,10 @@ long	ft_atol(const char *str)
 	}
 	return (sign * res);
 }
+/*
+** Initializes stack A with validated integer arguments.
+** Returns 1 if overflow or allocation error occurs.
+*/
 
 int	init_stack(t_stack *a, int argc, char **argv)
 {
@@ -52,6 +60,10 @@ int	init_stack(t_stack *a, int argc, char **argv)
 	}
 	return (0);
 }
+/*
+** Checks if all arguments are valid numeric strings.
+** Returns 1 if any invalid format is detected.
+*/
 
 int	check_invalid_args(int argc, char **argv)
 {
@@ -78,6 +90,10 @@ int	check_invalid_args(int argc, char **argv)
 	}
 	return (0);
 }
+/*
+** Checks for duplicate numeric values in arguments.
+** Returns 1 if duplicates are found.
+*/
 
 int	check_duplicates_args(int argc, char **argv)
 {
@@ -102,6 +118,10 @@ int	check_duplicates_args(int argc, char **argv)
 	}
 	return (0);
 }
+/*
+** Validates input arguments and initializes stack A.
+** Returns 1 if any parsing error occurs.
+*/
 
 int	parse_args(int argc, char **argv, t_stack *a)
 {

@@ -11,6 +11,10 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
+/*
+** Counts the number of strings in a NULL-terminated array.
+** Returns the count of tokens.
+*/
 
 static int	count_tokens(char **tokens)
 {
@@ -21,6 +25,10 @@ static int	count_tokens(char **tokens)
 		cnt++;
 	return (cnt);
 }
+/*
+** Frees a NULL-terminated array of strings,
+** including each string inside it.
+*/
 
 static void	free_tokens_array(char **tokens)
 {
@@ -34,6 +42,10 @@ static void	free_tokens_array(char **tokens)
 	}
 	free(tokens);
 }
+/*
+** Builds a new argv array from split tokens and parses them into stack A.
+** Handles memory allocation and cleanup on error.
+*/
 
 static int	build_and_parse(char **tokens, t_stack *a)
 {
@@ -55,6 +67,11 @@ static int	build_and_parse(char **tokens, t_stack *a)
 	free_tokens_array(tokens);
 	return (0);
 }
+/*
+** Handles a single argument containing multiple numbers separated by spaces.
+** Splits the string, validates the numbers, and fills stack A.
+** Returns 0 on success, 1 on error, 2 if no numbers found.
+*/
 
 int	handle_single_argument(char *arg, t_stack *a)
 {
