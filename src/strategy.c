@@ -6,7 +6,7 @@
 /*   By: alecasan <alecasan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/20 13:16:23 by smilla-c          #+#    #+#             */
-/*   Updated: 2026/02/26 11:46:43 by alecasan         ###   ########.fr       */
+/*   Updated: 2026/03/04 11:02:12 by smilla-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,7 +119,7 @@ void	medium_sort(t_stack *a, t_stack *b, t_bench *bench)
 ** Adaptive sorting strategy that selects the method based on stack size.
 ** Uses select_strategy, medium_sort, or radix_sort accordingly.
 */
- 
+
 void	adaptive_sort(t_stack *a, t_stack *b, t_bench *bench)
 {
 	if (a->size <= 3)
