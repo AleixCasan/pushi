@@ -93,9 +93,6 @@ $ ./push_swap 3 2 1
 sa
 rra
 
-$ ./push_swap --count-only 3 2 1
-2
-
 $ ./push_swap --bench 5 3 1 4 2
 pb
 pb
