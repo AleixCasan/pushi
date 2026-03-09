@@ -25,7 +25,6 @@ El programa recibe como argumentos una lista de números enteros y produce por `
 - **Cuatro estrategias de ordenación** seleccionables mediante flags (`--simple`, `--medium`, `--complex`, `--adaptive`)
 - **Modo adaptativo** por defecto: elige automáticamente la estrategia óptima según el tamaño y nivel de desorden de la entrada
 - **Sistema de benchmarking** (`--bench`) que mide operaciones, desorden inicial y complejidad
-- **Modo `--count-only`**: ejecuta el algoritmo en silencio e imprime únicamente el número total de operaciones
 - Gestión robusta de errores: desbordamiento de `int`, duplicados, argumentos no numéricos, flags desconocidas
 - Compatible con argumento único entre comillas: `./push_swap "3 1 2"`
 
@@ -86,7 +85,6 @@ make re     # Limpia y recompila desde cero
 --adaptive    # Selección automática (comportamiento por defecto)
 
 --bench       # Activa el sistema de benchmarking (salida por stderr)
---count-only  # Solo imprime el número total de operaciones
 ```
 
 ### Ejemplos de salida
