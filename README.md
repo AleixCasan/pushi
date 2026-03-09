@@ -206,8 +206,6 @@ Mide el **nivel de desorden** como el porcentaje de pares de inversión respecto
 - [Wikipedia — Sorting Algorithm](https://en.wikipedia.org/wiki/Sorting_algorithm) — Comparativa de algoritmos de ordenación y sus complejidades
 - [Visualgo — Sorting Visualizations](https://visualgo.net/en/sorting) — Visualización interactiva de algoritmos de ordenación
 - [GeeksForGeeks — Selection Sort](https://www.geeksforgeeks.org/selection-sort/) — Base teórica de `simple_sort`
-- [CP-Algorithms — Inversions](https://cp-algorithms.com/sequences/inv.html) — Cálculo del número de inversiones como medida de desorden
-- [42 Docs — push_swap subject](https://cdn.intra.42.fr/pdf/pdf/134758/en.subject.pdf) — Enunciado oficial del proyecto
 
 ### Uso de IA
 
