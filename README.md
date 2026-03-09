@@ -83,8 +83,7 @@ make re     # Limpia y recompila desde cero
 --medium      # Fuerza medium_sort  → O(n√n),      recomendado para n ≤ 100
 --complex     # Fuerza radix_sort   → O(n log n),  recomendado para n > 100
 --adaptive    # Selección automática (comportamiento por defecto)
-
---bench       # Activa el sistema de benchmarking (salida por stderr)
+--bench       # Activa el sistema de benchmarking (salida por fichero .txt)
 ```
 
 ### Ejemplos de salida
