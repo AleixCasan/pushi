@@ -215,7 +215,6 @@ Durante el desarrollo de este proyecto se utilizó IA (Claude, Anthropic) como h
 
 | Tarea | Descripción |
 |-------|-------------|
-| **Depuración** | Análisis de bugs en la lógica de `chunk_sort` y en el sistema de flags de `main.c` (en particular el bug del bloque `--count-only` ejecutándose antes de `run_strategy`) |
 | **Documentación** | Generación de este README a partir de la guía de evaluación interna del proyecto |
 | **Revisión de lógica** | Verificación de los casos límite en `sort_three` y de la condición de dirección óptima en `rotate_to_pos` |
 | **Explicación de conceptos** | Comprensión de la complejidad O(n√n) del chunk sort y de la implementación LSD de radix sort |
